@@ -53,6 +53,7 @@ This package uses a ball and beam system to demonstrate PID control. It leverage
 2. Execution order: Launching `ball_balancer.launch` -> Launching `ball_control.launch` -> Running `balancing_node.py`  
 ---
 
-![model](images/model.png)
+![model](images/Model.png)
+
 **Ball and Beam Model**
 ---
