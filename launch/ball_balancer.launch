@@ -1,0 +1,13 @@
+<launch>
+ 
+  <param name="robot_description" textfile="$(find ball_balancer)/urdf/model.urdf"/>
+  
+  <param name="ball_description" textfile="$(find ball_balancer)/urdf/ball.urdf"/>
+  
+  <include file="$(find gazebo_ros)/launch/empty_world.launch"/>
+  
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model ball_seesaw"/>
+  
+  <node name="spawn_ball" pkg="gazebo_ros" type="spawn_model" args="-param ball_description -urdf -model ball -x 0.0 -y 0.0 -z 0.1 "/>
+  
+</launch> 

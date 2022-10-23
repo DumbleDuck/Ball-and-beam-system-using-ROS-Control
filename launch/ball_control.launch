@@ -1,0 +1,13 @@
+<launch>
+
+ <!-- Joint controller configurations to parameter server -->
+ <rosparam file="$(find ball_balancer_control)/config/ball_control.yaml" command="load"/>
+
+ <!-- Starting controller manager to load the controllers -->
+ <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="/ball_balancer" args="joint_state_controller seesaw_joint_position_controller"/>
+
+ <!-- Joint states to TF transforms -->
+ <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
+  <remap from="/joint_states" to="/ball_balancer/joint_states"/>
+ </node>
+</launch>
